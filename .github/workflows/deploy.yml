@@ -8,4 +8,4 @@ jobs:
 
         steps:
             - name: Print Variable
-              run: echo "${{secrets}}"
+              run: echo "${{secrets.GITHUB_TOKEN}}"

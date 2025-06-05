@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pruebas en GifItem Es igual al snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Enrrin Pagoada"
+      src="http://www.imagen.com/enrrin.jpg"
+    />
+    <p>
+      Enrrin Pagoada
+    </p>
+  </div>
+</div>
+`;

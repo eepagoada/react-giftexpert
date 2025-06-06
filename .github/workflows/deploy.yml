@@ -4,7 +4,7 @@ on: push
 
 jobs:
     build:
-        runs-on: ubuntu-latest
+        runs-on: ${{matrix.os}}
 
         # services:
         #     redis:
@@ -12,10 +12,10 @@ jobs:
         #         ports:
         #             - 6379:6379
 
-        # strategy:
-        #   matrix:
-        #     os: [ ubuntu-latest, windows-latest]
-        #     node: [ 18, 20]
+        strategy:
+          matrix:
+            os: [ ubuntu-latest, windows-latest]
+            node: [ 18, 20]
 
         steps:
             # - name: Install redis cli
@@ -34,7 +34,7 @@ jobs:
             - name: setup
               uses: digi-fry/setup-yarn-node-action@v1
               with:
-                node-version: 18
+                node-version: ${{matrix.node}}
 
             - name: Instalar dependencias
               run: yarn install
@@ -43,7 +43,7 @@ jobs:
             #   run: yarn test
 
             - name: Build page
-              run: vite build
+              run: yarn build
 
             - name: Upload Artefact
               uses: actions/upload-pages-artifact@v3

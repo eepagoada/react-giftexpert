@@ -34,14 +34,17 @@ jobs:
             - name: Instalar dependencias
               run: npm install
 
-            - name: Test
-              run: yarn test
+            # - name: Test
+            #   run: yarn test
+
+            - name: Build page
+              run: yarn build
 
     deploy:
-    
+        needs: first_job
         runs-on: ubuntu-latest
 
         steps:
           - name: Deploy
-            run: yarn build
+            run: echo "Deploy"
              

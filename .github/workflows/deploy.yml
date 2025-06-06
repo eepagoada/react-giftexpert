@@ -3,7 +3,7 @@ name: Deploy
 on: push
 
 jobs:
-    first_job:
+    build:
         runs-on: ubuntu-latest
 
         # services:
@@ -40,11 +40,27 @@ jobs:
             - name: Build page
               run: yarn build
 
+            - name: Upload Artefact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: public/
+
+
     deploy:
-        needs: first_job
+        needs: build
         runs-on: ubuntu-latest
+
+        permissions: 
+            pages: write
+            id-token: write
+
+        environment: 
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url}}
 
         steps:
           - name: Deploy
-            run: echo "Deploy"
+            id: deployment
+            uses: actions/deploy-pages@v4
+              
              

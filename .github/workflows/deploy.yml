@@ -31,11 +31,16 @@ jobs:
               with:
                 node-version: '18'
 
-            - name: Instalar dependencias
-              run: npm install
+            # - name: Instalar dependencias
+            #   run: yarn install
 
             # - name: Test
             #   run: yarn test
+
+            - name: Yarn Setup
+              uses: DerYeger/yarn-setup-action@master
+              with:
+                node-version: 18
 
             - name: Build page
               run: yarn build

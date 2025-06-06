@@ -21,7 +21,7 @@ jobs:
 
 
             - name: Print Variable
-              run: echo "${{github.env.NAME}}"
+              run: echo "${{toJson(github.env)}}"
 
             - name: setup
               uses: actions/setup-node@v4

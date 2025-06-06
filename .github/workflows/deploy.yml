@@ -33,4 +33,7 @@ jobs:
 
             - name: Instalar dependencias
               run: npm install
+
+            - name: Test
+              run: jest --watchAll
              

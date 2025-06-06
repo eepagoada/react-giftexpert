@@ -12,6 +12,11 @@ jobs:
         #         ports:
         #             - 6379:6379
 
+        # strategy:
+        #   matrix:
+        #     os: [ ubuntu-latest, windows-latest]
+        #     node: [ 18, 20]
+
         steps:
             # - name: Install redis cli
             #   run: sudo apt-get update -y && sudo apt-get install redis-tools -y
@@ -38,7 +43,7 @@ jobs:
             #   run: yarn test
 
             - name: Build page
-              run: yarn build
+              run: vite build
 
             - name: Upload Artefact
               uses: actions/upload-pages-artifact@v3
@@ -70,7 +75,9 @@ jobs:
 
     #     steps:
     #       - name: Notificar to stack
-    #         uses: 8398a7/slack@v
+    #         uses: 8398a7/action-slack@v3
+    #         env: 
+
     #         with:
               
               

@@ -20,8 +20,8 @@ jobs:
             #   run: redis-cli -h localhost -p 6379 ping
 
 
-            - name: Print Variable
-              run: echo "${{env.SECRET}}"
+            # - name: Print Variable
+            #   run: echo "${{env.SECRET}}"
 
             - name: Checkout
               uses: actions/checkout@v4
@@ -35,5 +35,13 @@ jobs:
               run: npm install
 
             - name: Test
-              run: jest --watchAll
+              run: yarn test
+
+    deploy:
+    
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: Deploy
+            run: yarn build
              

@@ -21,7 +21,7 @@ jobs:
 
 
             - name: Print Variable
-              run: echo "${{secrets.SECRET}}"
+              run: echo "${{env.NAME.SECRET}}"
 
             - name: setup
               uses: actions/setup-node@v4
